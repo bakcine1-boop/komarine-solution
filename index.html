@@ -180,7 +180,37 @@ html[data-lang=ko] .mani p.big{line-height:1.4;letter-spacing:-.04em}
 
 /* ===== Track record ===== */
 .trk .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
-.tline{margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.tline{margin-top:80px;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+
+/* ===== Expertise refs ===== */
+.xi .refs{padding:0 0 28px 64px;margin-top:-10px;font-size:14px;color:var(--sub);line-height:1.7}
+.xi .refs a{color:var(--navy);font-weight:600;white-space:nowrap;border-bottom:1px solid rgba(15,42,74,.35);margin-left:4px}
+.xi .refs a:hover{border-color:var(--navy)}
+
+/* ===== Projects ===== */
+.prj{background:#fff}
+.prj .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+.pfil{display:flex;flex-wrap:wrap;gap:8px;margin-top:64px}
+.pfil button{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font-size:14.5px;font-weight:500;transition:background .25s,color .25s,border-color .25s}
+.pfil button:hover{border-color:var(--ink)}
+.pfil button.on{background:var(--abyss);color:#fff;border-color:var(--abyss)}
+.pfil button small{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:7px}
+.ctry{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--steel)}
+.ctry span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--signal);margin-right:8px;vertical-align:middle}
+.plist{margin-top:30px;border-top:1px solid var(--ink)}
+.pr{display:grid;grid-template-columns:84px 1.7fr 1.05fr 1fr 64px;gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.pr.phead{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);padding:14px 0}
+.pr.phead span:last-child{justify-self:end}
+.pr .y{font-family:var(--mono);font-size:13px;color:var(--steel)}
+.pr .nm{font-size:16.5px;font-weight:600;letter-spacing:-.015em;line-height:1.4}
+.pr .nm small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);font-weight:400;margin-top:5px}
+.pr .cl{font-size:14.5px;color:var(--sub)}
+.pr .rl{font-size:14.5px}
+.pr .cc{justify-self:end;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;padding:3px 8px;border:1px solid var(--line);border-radius:6px}
+.pr.new{animation:pin .5s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.pmore{margin-top:32px}
+.pmore[hidden]{display:none}
 .tline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
 .ev{position:relative;padding-top:40px;padding-right:24px}
 .ev::before{content:"";position:absolute;top:3px;left:0;width:13px;height:13px;border-radius:50%;background:var(--paper);border:1.5px solid var(--navy)}
@@ -256,6 +286,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
   .m:nth-child(odd){border-right:1px solid var(--line-d);padding-right:28px}
   .m:nth-child(even){padding-left:28px}
   .tline{grid-template-columns:1fr;gap:0}
+  .pr{grid-template-columns:64px 1.6fr 1fr 1fr 56px;gap:16px}
   .tline::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
   .ev{padding:0 0 34px 40px}
   .ev::before{top:4px}
@@ -279,7 +310,14 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
   .hb:nth-child(odd){border-left:0;padding-left:0}
   .hb:nth-child(-n+2){border-bottom:1px solid var(--line-d)}
   .mani .wrap{grid-template-columns:1fr;gap:26px}
-  .bridge .head,.mkt .head,.trk .head{grid-template-columns:1fr;gap:22px}
+  .bridge .head,.mkt .head,.trk .head,.prj .head{grid-template-columns:1fr;gap:22px}
+  .xi .refs{padding-left:0;margin-top:-4px}
+  .pfil{margin-top:40px;flex-wrap:nowrap;overflow-x:auto;margin-left:calc(var(--pad)*-1);margin-right:calc(var(--pad)*-1);padding:0 var(--pad) 4px;scrollbar-width:none}
+  .pfil::-webkit-scrollbar{display:none}
+  .pfil button{flex:none}
+  .pr.phead{display:none}
+  .pr{grid-template-columns:1fr auto;grid-template-areas:"y cc" "nm nm" "cl cl" "rl rl";gap:4px 12px;padding:18px 0}
+  .pr .y{grid-area:y}.pr .cc{grid-area:cc}.pr .nm{grid-area:nm;margin-top:4px}.pr .cl{grid-area:cl}.pr .rl{grid-area:rl;color:var(--navy);font-size:14px}
   .bwrap{grid-template-columns:1fr;gap:0;margin-top:48px}
   .hub{height:150px}
   .hub svg.flow{display:none}
@@ -322,8 +360,9 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
     <nav class="nav" id="nav" aria-label="Primary">
       <a class="l" href="#role"><span lang="en">Our Role</span><span lang="ko">역할</span></a>
       <a class="l" href="#expertise"><span lang="en">Expertise</span><span lang="ko">사업분야</span></a>
+      <a class="l" href="#projects"><span lang="en">Projects</span><span lang="ko">수행 실적</span></a>
       <a class="l opt" href="#market"><span lang="en">Korea Market</span><span lang="ko">한국 시장</span></a>
-      <a class="l" href="#record"><span lang="en">Track Record</span><span lang="ko">경력</span></a>
+      <a class="l opt" href="#record"><span lang="en">Track Record</span><span lang="ko">경력</span></a>
       <a class="l opt" href="#leadership"><span lang="en">Leadership</span><span lang="ko">대표이사</span></a>
       <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-label="English">EN</button><span>/</span><button data-l="ko" aria-label="한국어">KO</button></div>
       <a class="cta-s" href="#contact"><span lang="en">Contact</span><span lang="ko">문의하기</span> <span aria-hidden="true">→</span></a>
@@ -354,9 +393,9 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
   </div>
   <div class="hero-bar">
     <div class="wrap">
-      <div class="hb"><div class="k">Field experience</div><div class="v">45+ <small lang="en">years</small><small lang="ko">년</small></div></div>
+      <div class="hb"><div class="k">Field experience</div><div class="v">46+ <small lang="en">years</small><small lang="ko">년</small></div></div>
       <div class="hb"><div class="k">Founded</div><div class="v">1999 <small>Seoul</small></div></div>
-      <div class="hb"><div class="k">Languages</div><div class="v">EN · KO</div></div>
+      <div class="hb"><div class="k">Project references</div><div class="v">31 <small lang="en">in 8 countries</small><small lang="ko">건 · 8개국</small></div></div>
       <div class="hb"><div class="k"><span class="live"></span>Seoul · KST</div><div class="v" id="kst">--:--</div></div>
     </div>
   </div>
@@ -428,13 +467,13 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
     <div class="xgrid">
       <div class="xlist" id="xlist">
         <div class="xi on" data-i="0"><button aria-expanded="true"><span class="n">01</span><span class="t"><span lang="en">Dredging &amp; Reclamation</span><span lang="ko">준설·매립</span><small lang="ko">Dredging &amp; Reclamation</small></span><span class="pl"></span></button>
-          <div class="body"><div><div class="mimg"><img src="dredging.jpg" alt="" loading="lazy"></div><p lang="en">Port and channel deepening, land reclamation and coastal works, from method selection and dredger matching to execution support.</p><p lang="ko">항로·항만 증심 준설, 매립과 해안 공사. 공법 선정과 준설선 매칭부터 수행 지원까지.</p><div class="chips"><span>TSHD</span><span>CSD</span><span>Land reclamation</span><span>Port &amp; channel</span></div></div></div></div>
+          <div class="body"><div><div class="mimg"><img src="dredging.jpg" alt="" loading="lazy"></div><p lang="en">Port and channel deepening, land reclamation and coastal works, from method selection and dredger matching to execution support.</p><p lang="ko">항로·항만 증심 준설, 매립과 해안 공사. 공법 선정과 준설선 매칭부터 수행 지원까지.</p><div class="chips"><span>TSHD</span><span>CSD</span><span>Land reclamation</span><span>Port &amp; channel</span></div><div class="refs"><span lang="en">Busan New Port · Gwangyang Port · Djen Djen, Algeria · AES LNG, Panama</span><span lang="ko">부산신항 · 광양항 · 알제리 젠젠항 · 파나마 AES LNG</span> <a href="#projects" data-go="dredging"><span lang="en">10 references →</span><span lang="ko">실적 10건 →</span></a></div></div></div></div>
         <div class="xi" data-i="1"><button aria-expanded="false"><span class="n">02</span><span class="t"><span lang="en">Subsea Cable</span><span lang="ko">해저 케이블</span><small lang="ko">Subsea Cable</small></span><span class="pl"></span></button>
-          <div class="body"><div><div class="mimg"><img src="cable.jpg" alt="" loading="lazy"></div><p lang="en">Power and telecom cable installation: route engineering input, laying, burial and protection with experienced installation contractors.</p><p lang="ko">전력·통신 해저 케이블의 경과지 검토, 포설, 매설, 보호 공사를 전문 시공사와 함께합니다.</p><div class="chips"><span>HVDC / HVAC</span><span>Cable lay</span><span>Trenching</span><span>Rock placement</span></div></div></div></div>
-        <div class="xi" data-i="2"><button aria-expanded="false"><span class="n">03</span><span class="t"><span lang="en">Offshore Pipeline</span><span lang="ko">해저 파이프라인</span><small lang="ko">Offshore Pipeline</small></span><span class="pl"></span></button>
-          <div class="body"><div><div class="mimg"><img src="pipeline.jpg" alt="" loading="lazy"></div><p lang="en">Subsea pipeline laying, pre- and post-lay trenching, shore approaches and stabilisation.</p><p lang="ko">해저 배관 포설, 사전·사후 트렌칭, 육상 접안부와 안정화 공사.</p><div class="chips"><span>Pipelay</span><span>Shore approach</span><span>Stabilisation</span></div></div></div></div>
+          <div class="body"><div><div class="mimg"><img src="cable.jpg" alt="" loading="lazy"></div><p lang="en">Power and telecom cable installation: route engineering input, laying, burial and protection with experienced installation contractors.</p><p lang="ko">전력·통신 해저 케이블의 경과지 검토, 포설, 매설, 보호 공사를 전문 시공사와 함께합니다.</p><div class="chips"><span>HVDC / HVAC</span><span>Cable lay</span><span>Trenching</span><span>Rock placement</span></div><div class="refs"><span lang="en">Jeju HVDC (KEPCO) · Lightning HVDC, UAE · PEI–NB, Canada · Ras Laffan–Halul, Qatar</span><span lang="ko">제주 HVDC(한전) · UAE 라이트닝 HVDC · 캐나다 PEI–NB · 카타르 라스라판–할룰</span> <a href="#projects" data-go="cable"><span lang="en">6 references →</span><span lang="ko">실적 6건 →</span></a></div></div></div></div>
+        <div class="xi" data-i="2"><button aria-expanded="false"><span class="n">03</span><span class="t"><span lang="en">Pipeline &amp; Trenching</span><span lang="ko">해저 배관·트렌칭</span><small lang="ko">Pipeline &amp; Trenching</small></span><span class="pl"></span></button>
+          <div class="body"><div><div class="mimg"><img src="pipeline.jpg" alt="" loading="lazy"></div><p lang="en">Subsea pipeline laying, pre- and post-lay trenching, shore approaches and stabilisation.</p><p lang="ko">해저 배관 포설, 사전·사후 트렌칭, 육상 접안부와 안정화 공사.</p><div class="chips"><span>SPM</span><span>Pre-trenching</span><span>Backfilling</span><span>Intake &amp; outfall</span></div><div class="refs"><span lang="en">S-OIL &amp; KNOC SPM, Ulsan · Donghae-1 · Takoradi, Ghana</span><span lang="ko">울산 S-OIL·KNOC SPM · 동해-1 · 가나 타코라디</span> <a href="#projects" data-go="pipeline"><span lang="en">5 references →</span><span lang="ko">실적 5건 →</span></a></div></div></div></div>
         <div class="xi" data-i="3"><button aria-expanded="false"><span class="n">04</span><span class="t"><span lang="en">Offshore Wind</span><span lang="ko">해상풍력</span><small lang="ko">Offshore Wind</small></span><span class="pl"></span></button>
-          <div class="body"><div><div class="mimg"><img src="wind.jpg" alt="" loading="lazy"></div><p lang="en">Balance-of-plant marine scopes: seabed preparation, foundations, scour protection, array and export cables.</p><p lang="ko">해저면 정지, 기초 설치, 세굴 방지, 내부망·송전 케이블 등 해상풍력 해양 공정 전반.</p><div class="chips"><span>Foundations</span><span>Scour protection</span><span>Array &amp; export cables</span></div></div></div></div>
+          <div class="body"><div><div class="mimg"><img src="wind.jpg" alt="" loading="lazy"></div><p lang="en">Balance-of-plant marine scopes: seabed preparation, foundations, scour protection, array and export cables.</p><p lang="ko">해저면 정지, 기초 설치, 세굴 방지, 내부망·송전 케이블 등 해상풍력 해양 공정 전반.</p><div class="chips"><span>Foundations</span><span>Scour protection</span><span>Array &amp; export cables</span></div><div class="refs"><span lang="en">Jeju Hallim · Shinan · Nakwol · Taean · Anma · Yokji</span><span lang="ko">제주 한림 · 신안 · 낙월 · 태안 · 안마 · 욕지</span> <a href="#projects" data-go="wind"><span lang="en">10 references →</span><span lang="ko">실적 10건 →</span></a></div></div></div></div>
         <div class="xi" data-i="4"><button aria-expanded="false"><span class="n">05</span><span class="t"><span lang="en">Offshore Geotechnical</span><span lang="ko">해양 지반조사</span><small lang="ko">Offshore Geotechnical</small></span><span class="pl"></span></button>
           <div class="body"><div><div class="mimg"><img src="geo.jpg" alt="" loading="lazy"></div><p lang="en">Offshore drilling, seabed sampling and in-situ testing that underpin safe foundation and route design.</p><p lang="ko">기초·경과지 설계의 근거가 되는 해상 시추, 해저 시료 채취, 현장 시험.</p><div class="chips"><span>Drilling</span><span>CPT</span><span>Sampling</span></div></div></div></div>
         <div class="xi" data-i="5"><button aria-expanded="false"><span class="n">06</span><span class="t"><span lang="en">Marine Equipment Charter</span><span lang="ko">해양 장비 용선</span><small lang="ko">Equipment Charter</small></span><span class="pl"></span></button>
@@ -448,12 +487,29 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section class="prj sec" id="projects" aria-label="Project references">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><div class="label"><b>04</b> Project References</div>
+        <h2 class="h"><span lang="en">31 references, <em>8 countries.</em></span><span lang="ko">31건의 실적, <em>8개국</em></span></h2></div>
+      <p class="lede rv d1"><span lang="en">Selected dredging, reclamation, subsea cable, trenching and offshore wind projects in which our team took part, from Busan New Port to the Arabian Gulf and the Americas.</span><span lang="ko">부산신항에서 중동과 미주까지, 우리 팀이 참여한 준설·매립, 해저 케이블, 트렌칭, 해상풍력 프로젝트입니다.</span></p>
+    </div>
+    <div class="pfil rv" id="pfil" role="tablist"></div>
+    <div class="ctry rv" aria-label="Countries"><span>KOR</span><span>UAE</span><span>VNM</span><span>CAN</span><span>QAT</span><span>ALG</span><span>PAN</span><span>GHA</span></div>
+    <div class="plist" id="plist">
+      <div class="pr phead" aria-hidden="true"><span>Year</span><span>Project</span><span>Owner / Client</span><span>Role</span><span>Country</span></div>
+    </div>
+    <button class="btn ol pmore" id="pmore"><span lang="en">Show all projects</span><span lang="ko">전체 실적 보기</span></button>
+  </div>
+</section>
+
 <!-- MARKET -->
 <section class="mkt dark sec" id="market" aria-label="Korea market">
   <div class="bgimg"></div>
   <div class="wrap">
     <div class="head">
-      <div class="rv"><div class="label"><b>04</b> Why Korea, why now</div>
+      <div class="rv"><div class="label"><b>05</b> Why Korea, why now</div>
         <h2 class="h"><span lang="en">Korea's seas are entering <em>a decade of build-out.</em></span><span lang="ko">한국의 바다는 <em>대규모 건설의 10년</em>에 들어섰습니다.</span></h2></div>
       <p class="lede rv d1"><span lang="en">Offshore wind tenders and a national subsea HVDC grid are moving from plans to procurement. Installation vessels, cable-laying capacity and seabed know-how sit at the centre of delivery.</span><span lang="ko">해상풍력 입찰과 서해안 해저 HVDC 송전망이 계획에서 발주 단계로 넘어가고 있습니다. 설치 선박, 케이블 포설 능력, 해저 지반 기술이 사업의 중심에 있습니다.</span></p>
     </div>
@@ -470,13 +526,14 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
 <section class="trk sec" id="record" aria-label="Track record">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><div class="label"><b>05</b> Track Record</div>
-        <h2 class="h"><span lang="en">Four decades on the water, <em>since 1979.</em></span><span lang="ko">1979년부터, <em>바다 위의 40여 년</em></span></h2></div>
+      <div class="rv"><div class="label"><b>06</b> Track Record</div>
+        <h2 class="h"><span lang="en">Four decades on the water, <em>since 1978.</em></span><span lang="ko">1978년부터, <em>바다 위의 46년</em></span></h2></div>
       <p class="lede rv d1"><span lang="en">From national dredging works to a quarter century representing a global marine contractor in Korea.</span><span lang="ko">국가 준설 사업 현장에서 출발해, 25년간 세계적 해양 시공사의 한국 대표로 일했습니다.</span></p>
     </div>
     <div class="tline">
-      <div class="ev rv"><div class="y">1979 — 1988</div><h3 lang="en">Korea Dredging Corporation</h3><h3 lang="ko">한국준설공사</h3><p lang="en">Engineer and manager on dredging works in Busan and Incheon.</p><p lang="ko">부산·인천 준설 현장 엔지니어·매니저</p></div>
-      <div class="ev rv d1"><div class="y">1989 — 1999</div><h3 lang="en">Hanjin Engineering &amp; Construction</h3><h3 lang="ko">한진건설</h3><p lang="en">Team leader, Dredging &amp; Harbour Department.</p><p lang="ko">준설·항만부 팀장</p></div>
+      <div class="ev rv"><div class="y">1978 — 1984</div><h3 lang="en">Korea Dredging Corporation</h3><h3 lang="ko">한국준설공사</h3><p lang="en">Engineer, dredging operations and equipment.</p><p lang="ko">준설 작업·장비 엔지니어</p></div>
+      <div class="ev rv d1"><div class="y">1984 — 1991</div><h3 lang="en">Hanjin Engineering &amp; Construction</h3><h3 lang="ko">한진건설</h3><p lang="en">Manager, Dredging &amp; Port Construction Dept.</p><p lang="ko">준설·항만공사부 과장</p></div>
+      <div class="ev rv d1"><div class="y">1991 — 1999</div><h3 lang="en">Hanjin Heavy Industries</h3><h3 lang="ko">한진중공업</h3><p lang="en">Team leader, Dredging &amp; Port Construction Dept.</p><p lang="ko">준설·항만공사부 팀장</p></div>
       <div class="ev rv d2"><div class="y">1999</div><h3 lang="en">KOMARINE founded in Seoul</h3><h3 lang="ko">서울에서 코마린 설립</h3><p lang="en">Engineering, consulting and marine equipment charter.</p><p lang="ko">엔지니어링·컨설팅과 해양 장비 용선</p></div>
       <div class="ev rv d3"><div class="y">1999 — 2024</div><h3 lang="en">Representative in Korea, Jan De Nul Group</h3><h3 lang="ko">얀데눌 그룹 한국 대표</h3><p lang="en">Dredging, reclamation, subsea cable and pipeline, offshore wind.</p><p lang="ko">준설·매립, 해저 케이블·파이프라인, 해상풍력</p></div>
       <div class="ev now rv d4"><div class="y">Today</div><h3>KOMARINE SOLUTION</h3><p lang="en">Independent partner for marine and offshore projects in Korea and beyond.</p><p lang="ko">국내외 해양·해상 프로젝트의 독립 파트너</p></div>
@@ -487,7 +544,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
 <!-- APPROACH -->
 <section class="apr sec" id="approach" aria-label="Approach">
   <div class="wrap">
-    <div class="rv"><div class="label"><b>06</b> How we work</div>
+    <div class="rv"><div class="label"><b>07</b> How we work</div>
       <h2 class="h"><span lang="en">From first question <em>to final handover.</em></span><span lang="ko">첫 질문부터 <em>마지막 인계까지</em></span></h2></div>
     <div class="steps">
       <div class="st rv"><div class="no">STEP 01</div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="19" cy="19" r="11"/><path d="M27 27l9 9"/><path d="M13 21c2-2 4-2 6 0s4 2 6 0"/></svg><h3 lang="en">Assess</h3><h3 lang="ko">사업 검토</h3><p lang="en">Site conditions, quantities, schedule and constraints. Which methods are realistic?</p><p lang="ko">해역 조건, 물량, 일정, 제약을 살펴 현실적인 공법을 가립니다.</p></div>
@@ -507,16 +564,16 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
         <h3><span lang="en">Steven Park</span><span lang="ko">박상경</span><small lang="en">박상경</small><small lang="ko">Steven Park</small></h3>
         <div class="role">CEO · <span lang="en">Chief Executive Officer</span><span lang="ko">대표이사</span></div>
         <div class="facts">
-          <div><span lang="en">In marine works since</span><span lang="ko">해양 분야 경력</span><b>1979</b></div>
+          <div><span lang="en">In marine works since</span><span lang="ko">해양 분야 경력</span><b>1978</b></div>
           <div><span lang="en">Founded KOMARINE</span><span lang="ko">코마린 설립</span><b>1999</b></div>
           <div><span lang="en">Global contractor representation</span><span lang="ko">해외 시공사 한국 대표</span><b lang="en">25 years</b><b lang="ko">25년</b></div>
         </div>
         <a class="li" href="https://www.linkedin.com/in/steven-park-9279854a" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.84-2.1 3.8-2.1 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.12 1.43-2.12 2.9V21H9z"/></svg>LinkedIn ↗</a>
       </div>
       <div class="rv d1">
-        <div class="label"><b>07</b> Leadership</div>
-        <p class="quote" lang="en">“I started on a dredging site in 1979. What I have learned since is simple: <em>good projects begin with the right connections.</em> We will keep connecting owners and contractors, Korea and the world, with integrity.”</p>
-        <p class="quote" lang="ko">“1979년 준설 현장에서 일을 시작했습니다. 그 뒤로 배운 것은 단순합니다. <em>좋은 공사는 좋은 연결에서 시작됩니다.</em> 발주처와 시공사, 한국과 세계를 정직하게 잇는 일을 계속하겠습니다.”</p>
+        <div class="label"><b>08</b> Leadership</div>
+        <p class="quote" lang="en">“I started on a dredging site in 1978. What I have learned since is simple: <em>good projects begin with the right connections.</em> We will keep connecting owners and contractors, Korea and the world, with integrity.”</p>
+        <p class="quote" lang="ko">“1978년 준설 현장에서 일을 시작했습니다. 그 뒤로 배운 것은 단순합니다. <em>좋은 공사는 좋은 연결에서 시작됩니다.</em> 발주처와 시공사, 한국과 세계를 정직하게 잇는 일을 계속하겠습니다.”</p>
         <div class="sig"><span lang="en">Steven Park, CEO</span><span lang="ko">대표이사 박상경</span></div>
       </div>
     </div>
@@ -527,7 +584,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
 <section class="ctc dark sec" id="contact" aria-label="Contact">
   <div class="bgimg"></div>
   <div class="wrap">
-    <div class="label rv"><b>08</b> Contact</div>
+    <div class="label rv"><b>09</b> Contact</div>
     <h2 class="h rv d1"><span lang="en">Let's talk about <em>your next project.</em></span><span lang="ko">다음 프로젝트를<br><em>함께 이야기해 주세요.</em></span></h2>
     <div class="cgrid">
       <div class="cg rv"><div class="k">Office</div><a class="v" href="https://www.google.com/maps/search/?api=1&query=213+Nonhyeon-ro+Gangnam-gu+Seoul" target="_blank" rel="noopener"><span lang="en">213, Nonhyeon-ro, Gangnam-gu<br>Seoul 06262, Korea ↗</span><span lang="ko">서울시 강남구 논현로 213<br>(06262) ↗</span></a></div>
@@ -595,6 +652,62 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;
     requestAnimationFrame(f)}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var n=e.target.querySelector('[data-count]');if(n)count(n);io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  /* projects */
+  var CAT={dredging:['Dredging & Reclamation','준설·매립'],cable:['Subsea Cable','해저 케이블'],pipeline:['Pipeline & Trenching','해저 배관·트렌칭'],wind:['Offshore Wind','해상풍력']};
+  var RL={coord:['Project coordination','프로젝트 조율'],adv:['Technical advisory','기술 자문'],inst:['Installation management','포설 관리'],sup:['Installation supervision','포설 감독'],trl:['Trenching technical lead','트렌칭 기술 총괄'],trs:['Trenching oversight','트렌칭 감독'],pex:['Pipeline extension management','배관 연장 관리'],bf:['Pre-trenching & backfill supervision','사전 트렌칭·되메움 감독'],dm:['Dredging management','준설 수행 관리'],ds:['Dredging supervision','준설 감독'],dd:['Dredging operations lead','준설 작업 총괄'],tdb:['Trenching, dredging & backfill lead','트렌칭·준설·되메움 총괄'],rec:['Reclamation lead','매립 총괄'],sm:['Sand mound works lead','샌드마운드 시공 총괄'],trv:['Method & budget review','시공계획·예산 검토'],dr:['Design review & technical supervision','설계 검토·기술 감독'],fs:['Feasibility & planning','타당성 분석·계획'],cn:['Contract negotiation & oversight','계약 협상·수행 관리'],spm:['Senior project manager','선임 PM'],ta:['Technical advisor','기술 자문'],pl:['Planning & implementation','사업 계획·실행'],el:['Engineering & execution lead','엔지니어링·수행 총괄'],sc:['Senior consultant','선임 컨설턴트'],fst:['Feasibility study','타당성 검토']};
+  var P=[
+   [2023,'cable','KOR','Wando–Jeju HVDC subsea cable rock installation','완도–제주 HVDC 해저케이블 사석 보호 시공','KEPCO / LS Cable','coord'],
+   [2022,'cable','UAE','Lightning HVDC subsea cable installation','UAE 라이트닝 HVDC 해저케이블 포설','KEPCO','adv'],
+   [2021,'wind','KOR','Taean offshore wind farm, 504 MW','태안 해상풍력 504MW','Dohwa','pl'],
+   [2021,'wind','KOR','Anma offshore wind farm, 220 + 304 MW','안마 해상풍력 220+304MW','HEC / Dohwa','el'],
+   [2020,'dredging','VNM','Long Son refinery complex channel dredging','베트남 롱손 정유화학단지 항로 준설','PetroVietnam / POSCO E&C','dd'],
+   [2019,'cable','KOR','Jindo–Jeju HVDC subsea cable rock installation','진도–제주 HVDC 해저케이블 사석 보호 시공','KEPCO / LS Cable','coord'],
+   [2019,'cable','UAE','NASR Field PKG #2 subsea cable installation','UAE NASR 해상유전 PKG#2 해저케이블 포설','ADNOC / Hyundai Heavy Industries','inst'],
+   [2019,'wind','KOR','Jeonnam offshore wind farm, 100 MW','전남 해상풍력 100MW','JOWN (SK E&S / CIP)','cn'],
+   [2019,'wind','KOR','Yeonggwang Nakwol offshore wind farm, 354 MW','영광 낙월 해상풍력 354MW','Myungwoon / Dohwa','spm'],
+   [2019,'wind','KOR','Wando Geumil offshore wind farm, 600 MW','완도 금일 해상풍력 600MW','Yooshin','ta'],
+   [2018,'pipeline','KOR','Ulsan S-OIL SPM trenching for 42″ pipeline','울산 S-OIL SPM 42인치 배관 트렌칭','S-OIL / Daewoo E&C','trl'],
+   [2018,'wind','KOR','Jeonnam Shinan offshore wind farm, 300 MW','전남 신안 해상풍력 300MW','POSCO / Dohwa','fs'],
+   [2017,'dredging','KOR','Daesan Port access channel dredging','대산항 진입항로 준설','MOMAF / Halla E&C','dm'],
+   [2017,'dredging','KOR','Gwangyang Port 3rd access channel dredging','광양항 제3 진입항로 준설','MOMAF / Halla E&C','ds'],
+   [2017,'pipeline','KOR','Ulsan KNOC SPM trenching','울산 한국석유공사 SPM 트렌칭','KNOC / SK E&C','trs'],
+   [2017,'dredging','ALG','Djen Djen Port channel dredging','알제리 젠젠항 항로 준설','Djen Djen Port Authority / Daewoo E&C','dm'],
+   [2017,'wind','KOR','Jeju Handong–Pyeongdae offshore wind farm, 100 MW','제주 한동·평대 해상풍력 100MW','Jeju Energy / Dohwa','dr'],
+   [2016,'dredging','KOR','Busan New Port deepening, phase 2','부산신항 2단계 증심 준설','MOMAF / Hanjin Heavy Industries','dd'],
+   [2016,'cable','CAN','PEI–NB subsea cable installation','캐나다 PEI–NB 해저케이블 포설','AEI / LS Cable','sup'],
+   [2016,'dredging','PAN','AES LNG terminal channel dredging','파나마 AES LNG 터미널 항로 준설','AES / POSCO E&C','dd'],
+   [2016,'wind','KOR','Jeju Hallim offshore wind farm, 100 MW','제주 한림 해상풍력 100MW','Jeju Energy / Daelim','trv'],
+   [2014,'cable','QAT','Ras Laffan–Halul subsea cable installation','카타르 라스라판–할룰 해저케이블 포설','Qatar / LS Cable','adv'],
+   [2013,'pipeline','GHA','Takoradi power plant intake & outfall trenching','가나 타코라디 발전소 취·배수로 트렌칭','POSCO E&C','trl'],
+   [2006,'pipeline','KOR','SK SPM 2 pipeline extension','SK SPM 2 배관 연장','SK Energy / SK E&C','pex'],
+   [2005,'dredging','KOR','Ulsan New Port southern breakwater trenching, dredging & backfilling (Areas 1–2)','울산신항 남방파제 트렌칭·준설·되메움 (1·2공구)','MOMAF / Hyundai E&C, Daewoo E&C','tdb'],
+   [2005,'pipeline','KOR','Ulsan / Donghae-1 pre-trenching & sand backfilling','울산·동해-1 사전 트렌칭 및 모래 되메움','KNOC / Hyundai Heavy Industries','bf'],
+   [2003,'dredging','KOR','Busan New Port North Container Terminal reclamation','부산신항 북컨테이너부두 매립','Samsung C&T','rec'],
+   [2003,'dredging','KOR','Busan New Port sand mound construction','부산신항 샌드마운드 축조','Samsung C&T','sm'],
+   [2002,'dredging','KOR','Busan New Port initial channel dredging','부산신항 초기 항로 준설','Samsung C&T','dm'],
+   [0,'wind','KOR','Yokji offshore wind farm, 360 MW','욕지 해상풍력 360MW','K2M / Dohwa','sc'],
+   [0,'wind','KOR','Mokpo New Port marshalling port review','목포신항 해상풍력 지원부두(마샬링 항만) 검토','—','fst']
+  ];
+  var plist=document.getElementById('plist'),pfil=document.getElementById('pfil'),pmore=document.getElementById('pmore'),cur='all',expanded=false,LIMIT=10;
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function L(a){return '<span lang="en">'+esc(a[0])+'</span><span lang="ko">'+esc(a[1])+'</span>'}
+  function renderFil(){var keys=['all','dredging','cable','pipeline','wind'],h='';
+    keys.forEach(function(k){var n=k==='all'?P.length:P.filter(function(p){return p[1]===k}).length;
+      var lab=k==='all'?['All projects','전체']:CAT[k];
+      h+='<button role="tab" data-k="'+k+'" class="'+(k===cur?'on':'')+'" aria-selected="'+(k===cur)+'">'+L(lab)+'<small>'+n+'</small></button>'});
+    pfil.innerHTML=h;
+    pfil.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.k;expanded=false;renderFil();renderList(true)})})}
+  function renderList(anim){var rows=P.filter(function(p){return cur==='all'||p[1]===cur});
+    var show=expanded?rows:rows.slice(0,LIMIT);
+    plist.querySelectorAll('.pr:not(.phead)').forEach(function(r){r.remove()});
+    show.forEach(function(p){var d=document.createElement('div');d.className='pr'+(anim?' new':'');
+      d.innerHTML='<span class="y">'+(p[0]||'—')+'</span><span class="nm">'+L([p[3],p[4]])+'<small>'+L(CAT[p[1]])+'</small></span><span class="cl">'+esc(p[5])+'</span><span class="rl">'+L(RL[p[6]])+'</span><span class="cc">'+p[2]+'</span>';
+      plist.appendChild(d)});
+    pmore.hidden=expanded||rows.length<=LIMIT}
+  pmore.addEventListener('click',function(){expanded=true;renderList(true)});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(){cur=a.dataset.go;expanded=false;renderFil();renderList(false)})});
+  renderFil();renderList(false);
+
   /* vCard */
   document.getElementById('vcard').addEventListener('click',function(ev){ev.preventDefault();
     var v=['BEGIN:VCARD','VERSION:3.0','N:Park;Steven;;;','FN:Steven Park (박상경)','ORG:KOMARINE SOLUTION Co.\\, Ltd.','TITLE:CEO','TEL;TYPE=WORK,VOICE:+82-2-3461-1277','TEL;TYPE=WORK,FAX:+82-2-3461-1278','TEL;TYPE=CELL:+82-10-5354-2894','EMAIL;TYPE=WORK:steven.park@komarine.co.kr','ADR;TYPE=WORK:;;213\\, Nonhyeon-ro\\, Gangnam-gu;Seoul;;06262;Korea','URL:https://www.komarine.co.kr','END:VCARD'].join('\r\n');
